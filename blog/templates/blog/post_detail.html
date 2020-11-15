@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    <h1>This is the Post detail PAGE</h1>
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 left top">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ post.title }}</h1>
+                        <p class="text_muted">{{ post.author }} | {{ post.created_on }}</p>
+                        <p class="card-text">{{ post.content | safe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
