@@ -22,3 +22,17 @@ class Post(models.Model):
         """Unicode representation of Post."""
         return self.title
 
+class Comment(models.Model):
+    """Model definition for Comment."""
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=90)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
+    class Meta:
+        """Meta definition for Comment."""
+        ordering=["-created_on"]
+    def __str__(self):
+        """Unicode representation of Comment."""
+        return f'Comment {self.body} by {self.name}'

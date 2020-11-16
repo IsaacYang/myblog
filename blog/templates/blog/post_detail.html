@@ -8,16 +8,49 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-10 left top">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title">{{ post.title }}</h1>
-                        <p class="text_muted">{{ post.author }} | {{ post.created_on }}</p>
-                        <p class="card-text">{{ post.content | safe }}</p>
-                    </div>
-                </div>
+            <div class="col-md boder rounded shadow-sm">
+                <p class="font-weight-bold text-center">
+                    <h1>{{ post.title }}</h1>
+                </p>
+                <p>
+                    <span class="text-muted">{{ post.author }} | {{ post.created_on }}</span>
+                    <hr>
+                </p>
+                {{ post.content | safe }}
             </div>
         </div>
+
+        
+        {% if comments %}
+            <div class="row messagebox">
+                <h3>Recent Replies:</h3>
+                <p></p>
+                {% for comment in comments %}
+                <div class="col-md-10 boder rounded shadow-sm message float-right">
+                    <p class="font-weight-bold">
+                        {{ comment.name }}
+                        <span class="text-muted">created on {{ comment.created_on }}</span>
+                    </p>
+                    <hr>
+                    {{ comment.body | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-10 boder rounded shadow-sm">
+                    <h3>Leave a comment</h3>
+                    <form  method="post">
+                        {{ comment_form.as_p }}
+                        {% csrf_token %}
+                        <button type="submit" class='btn btn-secondary btn-lg'>Submmit</button>
+                    </form>
+            </div>
+        </div>
+        
+
+
     </div>
 {% endblock content %}
     
