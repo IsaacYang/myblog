@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,24 +8,8 @@
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-    .container {
-        margin-top:4em
-    }
-    .row {
-        padding-top: 1em;
-        padding-bottom: 1em;
-        }
-    .messagebox{
-        padding-top:2em
-    }
-    .message{
-        padding-top:1em;
-        margin-top:1em;
-        overflow-wrap: break-word;
-    }
-</style>
+<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+<link rel="stylesheet" href="{% static 'blog/css/base.css' %}">
 <title>
 {% block title %}
 <h1>this is the index page</h1>
