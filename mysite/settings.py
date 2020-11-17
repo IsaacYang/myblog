@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'crispy_forms'
+    'crispy_forms',
+    'django_summernote'
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -134,3 +135,8 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+SUMMERNOTE_THEME = 'bs4' 
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
