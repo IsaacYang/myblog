@@ -38,9 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'blog',
     'crispy_forms',
-    'django_summernote'
+    'django_summernote',
+
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

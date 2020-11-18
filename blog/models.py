@@ -21,6 +21,9 @@ class Post(models.Model):
     def __str__(self):
         """Unicode representation of Post."""
         return self.title
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse("blog:post_detail", kwargs={"slug": str(self.slug)})
 
 class Comment(models.Model):
     """Model definition for Comment."""
